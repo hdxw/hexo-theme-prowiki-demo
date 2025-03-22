@@ -1,0 +1,27 @@
+<% if(page.posts.length > 10) { %>
+    <%- partial('_widget/pagination') %>
+<% } %>
+<div class="sort-head">
+    <h2><i class="far fa-folder-open" aria-hidden="true"></i> <%= page.category %></h2>
+    <hr>
+</div>
+<% let offset = config.category_generator.per_page*(page.current-1);
+page.posts.each(function(post, i){ %>
+<div class="sort-post">
+    <a><%= offset+i+1 %>.</a>
+    <%- partial('_widget/post_link', {post:post}) %>
+    <div class="sort-list">
+    <% post.categories.each(function(category, i){ %>
+        <a class="sort-item" href="<%= url_for(category.path) %>">
+            <% if(i==0){ %>
+                <i class="far fa-folder-open" aria-hidden="true"></i>
+            <% }else{ %>
+                <i class="fas fa-angles-right" aria-hidden="true"></i>
+            <% } %>
+            <span><%= category.name %></span>
+        </a>
+    <% }) %>
+    </div>
+</div>
+<% }) %>
+<%- partial('_widget/pagination') %>

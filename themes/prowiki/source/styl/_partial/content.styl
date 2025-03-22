@@ -1,0 +1,43 @@
+// 页面通用
+.content
+  margin-top: var(--header-height)
+  a
+    color: var(--text-color)
+    &:hover
+      color: var(--hover-text-color)
+  i
+    font-size: 0.875em
+
+// 不换行、超出使用省略号
+.nowrap
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+// 返回顶部
+#gotop
+  display: none
+  z-index: 8
+  width: 2.5em
+  height: 2.5em
+  line-height: calc(2.5em - 2px)
+  text-align: center
+  border: 1px var(--text-color) solid
+  border-radius: 0.25em
+  background-color: var(--trans-back-color)
+  position: fixed
+  bottom: 3.75em
+  margin-left: 60%
+
+// index.ejs
+.post-list
+  display: grid
+  grid-gap: 0.75em
+  .post-digest
+    width: 100%
+    border: var(--title-text-color) 1px solid
+    border-radius: 5px
+    background: var(--trans-back-color)
+
+// 通用页面组件
+@import "_partial/post"

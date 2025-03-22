@@ -1,0 +1,23 @@
+<% if(page.posts.length > 10) { %>
+    <%- partial('_widget/pagination') %>
+<% } %>
+<div class="sort-head">
+    <h2><i class="far fa-hashtag" aria-hidden="true"></i> <%= page.tag %></h2>
+    <hr>
+</div>
+<% let offset = config.tag_generator.per_page*(page.current-1);
+page.posts.each(function(post, i){ %>
+<div class="sort-post">
+    <a><%= offset+i+1 %>.</a>
+    <%- partial('_widget/post_link', {post:post}) %>
+    <div class="sort-list">
+    <% post.tags.each(function(tag, i){ %>
+        <a class="sort-item" href="<%= url_for(tag.path) %>">
+            <i class="far fa-hashtag" aria-hidden="true"></i>
+            <span><%= tag.name %></span>
+        </a>
+    <% }) %>
+    </div>
+</div>
+<% }) %>
+<%- partial('_widget/pagination') %>

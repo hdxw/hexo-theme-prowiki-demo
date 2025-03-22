@@ -1,0 +1,11 @@
+<% if(page.posts.length > 8){ %>
+    <%- partial('_widget/pagination') %>
+<% } %>
+<div class="post-list">
+    <% page.posts.each(function(post, i){ %>
+    <div class="post-digest">
+        <%- partial('_widget/post_head', {post:post}) %>
+    </div>
+    <% }) %>
+</div>
+<%- partial('_widget/pagination') %>

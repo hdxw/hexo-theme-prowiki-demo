@@ -1,0 +1,22 @@
+.archive-head
+  width: 100%
+  margin: 1.125em 0
+  a
+    display: block
+    color: var(--title-text-color)
+    user-select: none
+    &:not([href])
+      pointer-events: none
+
+.archive-post
+  width: 100%
+  display: grid
+  grid-template-columns: auto 1fr
+  margin: 0.5em 0
+  a
+    display: block
+    font-size: 1.25em
+    padding: 0 0.25em
+    user-select: none
+    &:not([href])
+      pointer-events: none
